@@ -1,7 +1,7 @@
 <template>
     <div class="container h-12 mx-auto">
         <div class="max-w-xs mx-auto h-12 mt-20">
-            <h1 class="text-center text-orange-600 text-2xl font-bold">Register</h1>
+            <h1 class="text-center text-orange-600 text-2xl font-bold">Login</h1>
             <ValidatorObserver slim v-slot="{ handleSubmit }">
                 <form class="w-full bg-white-100 shadow mt-5 rounded-sm p-12"
                       @submit.prevent="handleSubmit(login)"
@@ -31,10 +31,16 @@
                         </ValidationProvider>
                     </label>
                     <btn
-                            label="Sign Up"
+                            label="Sign In"
                             :disabled="loading"
                             :loading="loading"
                     />
+                    <div class="mt-3 w-full">
+                        <router-link to="/auth/password/email"
+                                     class="inline-block no-underline w-full p-3 text-white bg-teal-400 text-center
+                                     rounded-sm outline-none hover:bg-teal-300"
+                        >Forgot Password</router-link>
+                    </div>
                 </form>
             </ValidatorObserver>
         </div>

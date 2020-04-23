@@ -6,5 +6,10 @@ export default {
         if (state.user.name) {
             return state.user.name;
         }
+    },
+    isUserConfirmEmail: (state) => {
+        if (state.user && state.user.emailConfirmCode !== null) {
+            return true;
+        }
     }
 };

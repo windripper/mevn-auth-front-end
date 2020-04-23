@@ -1,9 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/views/Home';
-import Register from '@/views/Register';
-import Login from '@/views/Login';
-import ForgotPassword from '@/views/ForgotPassword';
+import Register from '@/views/auth/Register';
+import Login from '@/views/auth/Login';
+import ForgotPassword from '@/views/auth/ForgotPassword';
+import ResetPassword from '@/views/auth/ResetPassword';
+import EmailConfirm from '@/views/auth/EmailConfirm';
+import NotFound from '@/views/NotFound';
 
 Vue.use(VueRouter);
 
@@ -14,19 +17,39 @@ const routes = [
         component: Home
     },
     {
-        path: '/register',
+        path: '/auth/register',
         name: 'Register',
         component: Register,
     },
     {
-        path: '/login',
+        path: '/auth/login',
         name: 'Login',
         component: Login,
     },
     {
-        path: '/auth/passwords/email',
+        path: '/auth/password/email',
+        name: 'Forgot Password',
         component: ForgotPassword
     },
+    {
+        path: '/auth/password/reset/:token',
+        name: 'Reset Password',
+        component: ResetPassword
+    },
+    {
+        path: '/auth/email/confirm/:token',
+        name: 'Email Confirm',
+        component: EmailConfirm
+    },
+    {
+        path: '/404',
+        name: 'Not Found',
+        component: NotFound
+    },
+    {
+        path: '*',
+        redirect: '/404'
+    }
 ];
 
 const router = new VueRouter({

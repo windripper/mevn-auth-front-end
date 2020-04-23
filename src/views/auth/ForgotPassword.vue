@@ -25,11 +25,6 @@
                     />
                 </form>
             </ValidatorObserver>
-            <ul v-show="errors.length">
-                <li v-for="error in errors" :key="error.id">
-                    Field: {{ error.field }}, message: {{ error.msg }}
-                </li>
-            </ul>
         </div>
     </div>
 </template>
@@ -58,16 +53,15 @@ export default {
         forgotPassword() {
             this.toggleLoading();
 
-            auth.forgotPassword(this.mode)
-                .then(() => {
+            auth.forgotPassword(this.model)
+                .then((response) => {
+                    console.log(response);
                     this.toggleLoading();
 
 
-                    this.router.push('/');
+                    this.$router.push('/');
                 })
                 .catch(error => {
-                    this.toggleLoading();
-
                     // TODO server validate error render
                     this.toggleLoading();
                     console.log(error);
