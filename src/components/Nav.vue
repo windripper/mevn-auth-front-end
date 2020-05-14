@@ -36,7 +36,12 @@ import auth from '@/utils/api/auth/apiCalls';
 export default {
     name: 'Nav',
     computed: {
-        ...mapGetters('auth', ['isUserConfirmEmail', 'getUser'])
+        // getUser function when inside mapGetters doesn't rerender component
+        // ...mapGetters('auth', ['isUserConfirmEmail', 'getUser']),
+        ...mapGetters('auth', ['isUserConfirmEmail']),
+        getUser() {
+            return this.$store.getters['auth/getUser'];
+        }
     },
     methods: {
         ...mapActions('auth', ['unsetAuth']),
