@@ -3,8 +3,10 @@ export default {
         return !!state.user;
     },
     getUserName: (state) => {
-        if (state.user.name) {
+        if (state.user) {
             return state.user.name;
+        } else {
+            return null;
         }
     },
     isUserConfirmEmail: (state) => {

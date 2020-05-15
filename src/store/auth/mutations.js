@@ -7,6 +7,6 @@ export default {
     unsetUserAuth: (state) => {
         localStorage.removeItem('auth');
         state.user = null;
-        state.user = null;
+        state.token = null;
     }
 };

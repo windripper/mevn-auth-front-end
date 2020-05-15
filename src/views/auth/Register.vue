@@ -86,10 +86,7 @@ export default {
                 .then(response => {
                     this.toggleLoading();
 
-
-                    // this.$store.dispatch('auth/setAuth', response.data);
                     this.setAuth(response.data);
-                    // TODO cannot read property '$router' of undefined if in actions
                     this.$router.push('/');
                 })
                 .catch(error => {

@@ -2,15 +2,15 @@ import actions from './actions';
 import getters from './getters';
 import mutations from './mutations';
 
-let initialState = null;
+let initialState = {
+    user: null,
+    token: null
+};
 
-try {
-    initialState = JSON.parse(localStorage.getItem('auth'));
-} catch(e) {
-    initialState = {
-        user: null,
-        token: null
-    };
+const auth = JSON.parse(localStorage.getItem('auth'));
+
+if (auth) {
+    initialState = auth;
 }
 
 export default {
